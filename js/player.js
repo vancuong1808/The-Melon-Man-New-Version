@@ -9,16 +9,23 @@ game.player = {
 		isInAir: false,
 		startedJump: false,
 		moveInterval: null,
+		maxHeight : 0,
 		fallTimeout: function(startingY, time, maxHeight) {
 			setTimeout( function () {
 				if (this.isInAir) {
-					this.y = startingY - maxHeight + Math.pow((-time / 3 + 11), 2)
+					if ( this.jumpCounter == 2 ) {
+						this.y = startingY - maxHeight - 121 + Math.pow((-time / 3 + 11), 2)
+					} else {
+						this.y = startingY - maxHeight + Math.pow((-time / 3 + 11), 2)
+					}
+					
 					if (this.y < this.highestY) {
 						this.highestY = this.y
 					}
 					if (time > 37) {
 						this.startedJump = false
 						game.checkCollisions()
+						this.jumpCounter = 0;
 					}
 					if (time < 150) {
 						time++

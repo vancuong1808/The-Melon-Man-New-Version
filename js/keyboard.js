@@ -60,6 +60,14 @@ game.keydown = function (event) {
 			game.moveRight()
 			break
 		case 32:
+			game.player.jumpCounter++;
+			if (game.player.jumpCounter == 2) {
+				clearInterval( game.player.fallTimeout );
+				game.player.isInAir = false;
+				game.player.highestY = game.player.y;
+				game.player.y -= 121;
+				game.player.maxheight -= 121;
+			}
 			game.player.jump()
 			break
 	}
