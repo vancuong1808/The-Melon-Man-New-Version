@@ -24,15 +24,15 @@ game.drawStructure = function (name, x, y) {
 game.drawPlayer = function () {
 	actualPlayerTile = game.player.animations[game.player.direction][game.player.animationFrameNumber % 4]
 	game.context.drawImage(
-		game.textures,
-		actualPlayerTile.tileColumn * game.options.tileWidth,
-		actualPlayerTile.tileRow * game.options.tileHeight,
-		game.options.tileWidth,
-		game.options.tileHeight,
-		Math.round(game.options.canvasWidth / 2 - game.options.tileWidth / 2),
-		Math.round(game.options.canvasHeight / 2 - game.options.tileHeight / 2),
-		game.options.tileWidth,
-		game.options.tileHeight
+		game.playerTextures,
+		( actualPlayerTile.tileColumn * game.options.playerTileWidth ) - 14,
+		( actualPlayerTile.tileRow * game.options.playerTileHeight ) - 14,
+		game.options.playerTileWidth,
+		game.options.playerTileHeight,
+		Math.round(game.options.canvasWidth / 2 - game.options.playerTileWidth / 2 ) - 12,
+		Math.round(game.options.canvasHeight / 2 - game.options.playerTileHeight / 2 ) - 12,
+		game.options.playerTileWidth,
+		game.options.playerTileHeight
 	)
 }
 
@@ -76,7 +76,7 @@ game.redraw = function () {
 	// Draw the player
 	game.drawPlayer()
 
-	game.counter.innerHTML = "A game by Karol Swierczek | Controls: A, D / arrows and SPACE | Points: " + Math.round(-game.player.highestY / (3 * game.options.tileHeight)), game.canvas.width - 50, game.canvas.height - 12
+	game.counter.innerHTML = "Score : " + Math.round(-game.player.highestY / (3 * game.options.tileHeight)), game.canvas.width - 50, game.canvas.height - 12
 }
 
 game.requestRedraw = function () {

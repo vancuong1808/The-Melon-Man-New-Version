@@ -3,7 +3,9 @@ game.player = {
 		y: 0,
 		height: 24,
 		highestY: 0,
+		score : 0,
 		direction: "left",
+		jumpCounter : 0,
 		isInAir: false,
 		startedJump: false,
 		moveInterval: null,
@@ -35,8 +37,10 @@ game.player = {
 		collidesWithGround: true,
 		animations: {
 			// Describe coordinates of consecutive animation frames of objects in textures
-			left: [{tileColumn: 4, tileRow: 0}, {tileColumn: 5, tileRow: 0}, {tileColumn: 4, tileRow: 0}, {tileColumn: 6, tileRow: 0}],
-			right: [{tileColumn: 9, tileRow: 0}, {tileColumn: 8, tileRow: 0}, {tileColumn: 9, tileRow: 0}, {tileColumn: 7, tileRow: 0}]
+			// left: [{tileColumn: 4, tileRow: 0}, {tileColumn: 5, tileRow: 0}, {tileColumn: 4, tileRow: 0}, {tileColumn: 6, tileRow: 0}],
+			// right: [{tileColumn: 9, tileRow: 0}, {tileColumn: 8, tileRow: 0}, {tileColumn: 9, tileRow: 0}, {tileColumn: 7, tileRow: 0}]
+			left: [{tileColumn: 0, tileRow: 0}, {tileColumn: 0, tileRow: 2}, {tileColumn: 3, tileRow: 2}, {tileColumn: 1, tileRow: 2}],
+			right: [{tileColumn: 0, tileRow: 0}, {tileColumn: 0, tileRow: 3}, {tileColumn: 3, tileRow: 3}, {tileColumn: 1, tileRow: 3}]
 		},
 		jump: function (type) {
 			if (!this.isInAir) {

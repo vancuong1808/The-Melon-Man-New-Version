@@ -42,9 +42,9 @@ canvas {
   font-family: 'superscript', Arial, sans-serif;
   font-size: 22px;
   color: black;
-  position: absolute;
-  bottom: 0;
-  right: 20px;
+  position: fixed;
+  top: 0;
+  left: 20px;
   text-align: center;
   z-index: 2;
 }
